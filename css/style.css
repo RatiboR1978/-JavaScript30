@@ -484,6 +484,18 @@ img {
           transform: scale(1.1);
   z-index: 2; }
 
+#drum {
+  position: relative; }
+
+#drum::before {
+  content: '';
+  position: absolute;
+  width: 156px;
+  height: 74px;
+  background: url("../img/finished.png");
+  bottom: 2px;
+  right: 2px; }
+
 .keys {
   display: -webkit-box;
   display: -webkit-flex;
