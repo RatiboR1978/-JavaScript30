@@ -34,3 +34,24 @@ function noplay() {
     })
 }
 
+/*JS and CSS Clock
+================*/
+
+function start() {
+    window.setInterval(sec, 1000);
+}
+
+function sec() {
+    let sec = ((new Date().getSeconds() / 60) * 360) - 270,
+        min = ((new Date().getMinutes() / 60) * 360) - 270,
+        hour = ((new Date().getHours() / 12) * 360) - 270,
+        minHand = document.querySelector('.min-hand'),
+        secondHand = document.querySelector('.second-hand'),
+        hourHand = document.querySelector('.hour-hand');
+
+    secondHand.style.transform = `rotate(${min}deg)`;
+    minHand.style.transform = `rotate(${sec}deg)`;
+    hourHand.style.transform = `rotate(${hour}deg)`;
+}
+
+start()
