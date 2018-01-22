@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS Variables</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="variables__wrap">
+        <h2>Update CSS Variables with <span class='variables__hl'>JS</span></h2>
+        <div class="variables__controls">
+            <label for="spacing">Spacing:</label>
+            <input id="spacing" type="range" name="spacing" min="10" max="200" value="10" data-sizing="px" class="variables__input">
+
+            <label for="blur">Blur:</label>
+            <input id="blur" type="range" name="blur" min="0" max="25" value="10" data-sizing="px" class="variables__input">
+
+            <label for="base">Base Color</label>
+            <input id="base" type="color" name="base" value="#ffc600" class="variables__input">
+        </div>
+        <img src="https://source.unsplash.com/7bwQXzbF6KE/800x500" class="variables__img">
+    </div>
+    <script src="js/libs.min.js"></script>
+    <script src="js/common.js"></script>
+</body>
+</html>

@@ -487,8 +487,7 @@ img {
 #drum {
   position: relative; }
 
-#clock::before,
-#drum::before {
+.finished::before {
   content: '';
   position: absolute;
   width: 156px;
@@ -615,3 +614,26 @@ kbd {
   -webkit-transform-origin: 100%;
       -ms-transform-origin: 100%;
           transform-origin: 100%; }
+
+.variables__wrap {
+  text-align: center;
+  background: #193549;
+  color: white;
+  font-family: 'helvetica neue', sans-serif;
+  font-weight: 100;
+  font-size: 50px; }
+
+.variables__controls {
+  margin-bottom: 50px; }
+
+.variables__input {
+  width: 100px; }
+
+.variables__img {
+  padding: 10px;
+  background-color: #ffc600;
+  -webkit-filter: blur(10px);
+          filter: blur(10px); }
+
+.variables__hl {
+  color: #ffc600; }

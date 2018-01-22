@@ -72,8 +72,8 @@
   position: relative;
 }
 
-#clock::before,
-#drum::before {
+
+.finished::before {
   content: '';
   position: absolute;
   width: 156px;
