@@ -37,7 +37,7 @@ if(window.location.toString().indexOf('drum.html') > 0) {
 
 
 /*JS and CSS Clock
-================*/
+======================*/
 
 if(window.location.toString().indexOf('clock.html') > 0) {
     function start() {
@@ -88,3 +88,17 @@ if(window.location.toString().indexOf('variables.html') > 0) {
     }
 }
 
+/*Flex Panel Gallery
+=========================*/
+
+if(window.location.toString().indexOf('panels.html') > 0) {
+    let panel = document.querySelectorAll('.panel');
+
+    Array.from(panel).forEach(function (item) {
+        item.addEventListener('click', function () {
+            item.classList.toggle('action');
+            item.children[0].classList.toggle('action-first');
+            item.children[2].classList.toggle('action-last');
+        })
+    })
+}
