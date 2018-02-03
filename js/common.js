@@ -102,3 +102,56 @@ if(window.location.toString().indexOf('panels.html') > 0) {
         })
     })
 }
+
+/*Type Ahead
+=========================*/
+
+if(window.location.toString().indexOf('type_ahead.html') > 0) {
+    const endpoint = 'https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json';
+
+    document.body.style.backgroundColor = '#ffc600';
+
+    let xhr = new XMLHttpRequest(),
+        suggestions = document.querySelector('.suggestions'),
+        search = document.querySelector('.search'),
+        arrCity;
+
+    xhr.open('GET', endpoint, false);
+    xhr.send();
+
+    if (xhr.status !== 200) {
+        alert( xhr.status + ': ' + xhr.statusText );
+    } else {
+        arrCity = JSON.parse(xhr.responseText);
+    }
+
+    search.addEventListener('keyup', func);
+
+    function func() {
+        let str,
+            textSearch = search.value.toLowerCase().trim();
+        if (search.value[0]) {
+            str = search.value[0].toUpperCase() + search.value.substring(1);
+            str = str.trim();
+        }
+
+        suggestions.innerHTML = '';
+
+        arrCity.forEach(function (item) {
+            if (item.city.indexOf(textSearch) >= 0 || item.city.indexOf(str) >= 0 || item.state.indexOf(textSearch) >= 0 || item.state.indexOf(str) >= 0) {
+                let li = document.createElement('li'),
+                    strLi = item.city + ', ' + item.state;
+                    reg = new RegExp(textSearch, 'i'),
+                    newStr = strLi.replace(reg, `<span class="target-search">${textSearch}</span>`);
+
+                li.innerHTML = `<p class="text-search">${newStr}</p><span>${item.population}</span>`;
+
+                suggestions.appendChild(li);
+            }
+        });
+        if (!textSearch[0] || textSearch[0] === ' ') {
+            suggestions.innerHTML = '';
+        }
+    }
+
+}
